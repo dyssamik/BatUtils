@@ -114,6 +114,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -133,7 +134,10 @@
   <ItemGroup>
     <Resource Include="Assets\ant.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\Sidebar.xaml">
       <Generator>MSBuild:Compile</Generator>
