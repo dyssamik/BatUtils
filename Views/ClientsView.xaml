@@ -1,0 +1,145 @@
+<UserControl x:Class="BatUtils.Views.ClientsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <UserControl.Resources>
+
+        <!-- Toolbar button -->
+
+        <Style x:Key="ToolbarButton"
+               TargetType="Button">
+
+            <Setter Property="Height"
+                    Value="28"/>
+
+            <Setter Property="MinWidth"
+                    Value="70"/>
+
+            <Setter Property="Margin"
+                    Value="0,0,6,0"/>
+
+            <Setter Property="Background"
+                    Value="#252525"/>
+
+            <Setter Property="Foreground"
+                    Value="#CCCCCC"/>
+
+            <Setter Property="BorderBrush"
+                    Value="#303030"/>
+
+            <Setter Property="BorderThickness"
+                    Value="1"/>
+
+            <Setter Property="Padding"
+                    Value="10,0"/>
+
+        </Style>
+
+        <!-- DataGrid -->
+
+        <Style TargetType="DataGrid">
+
+            <Setter Property="Background"
+                    Value="#1E1E1E"/>
+
+            <Setter Property="Foreground"
+                    Value="#CCCCCC"/>
+
+            <Setter Property="BorderBrush"
+                    Value="#303030"/>
+
+            <Setter Property="BorderThickness"
+                    Value="1"/>
+
+            <Setter Property="RowHeaderWidth"
+                    Value="0"/>
+
+            <Setter Property="GridLinesVisibility"
+                    Value="Horizontal"/>
+
+            <Setter Property="HeadersVisibility"
+                    Value="Column"/>
+
+            <Setter Property="CanUserAddRows"
+                    Value="False"/>
+
+            <Setter Property="CanUserDeleteRows"
+                    Value="False"/>
+
+            <Setter Property="AutoGenerateColumns"
+                    Value="False"/>
+
+            <Setter Property="IsReadOnly"
+                    Value="True"/>
+
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+
+            <Setter Property="Background"
+                    Value="#252525"/>
+
+            <Setter Property="Foreground"
+                    Value="#CCCCCC"/>
+
+            <Setter Property="BorderBrush"
+                    Value="#303030"/>
+
+            <Setter Property="BorderThickness"
+                    Value="0,0,1,1"/>
+
+            <Setter Property="Padding"
+                    Value="8,5"/>
+
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="8"/>
+
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <!-- Toolbar -->
+
+        <StackPanel Orientation="Horizontal">
+
+            <Button x:Name="AddButton"
+                    Style="{StaticResource ToolbarButton}"
+                    Content="+ Add"/>
+
+            <Button x:Name="DeleteButton"
+                    Style="{StaticResource ToolbarButton}"
+                    Content="× Delete"/>
+
+        </StackPanel>
+
+        <!-- Clients -->
+
+        <DataGrid x:Name="ClientsGrid"
+                  Grid.Row="2">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Code"
+                                    Width="80"
+                                    Binding="{Binding Code}"/>
+
+                <DataGridTextColumn Header="Name"
+                                    Width="*"
+                                    Binding="{Binding Name}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+
+</UserControl>
