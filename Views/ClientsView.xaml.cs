@@ -1,15 +1,139 @@
-﻿using System.Collections;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
+using BatUtils.Models;
+using BatUtils.Services;
 
 namespace BatUtils.Views
 {
     public partial class ClientsView : UserControl
     {
-        public ClientsView(IEnumerable clients)
+        public ObservableCollection<Client> Clients { get; }
+            = new ObservableCollection<Client>();
+
+        public ClientsView()
         {
             InitializeComponent();
 
-            ClientsGrid.ItemsSource = clients;
+            ClientsGrid.ItemsSource = Clients;
+
+            ReloadClients();
+        }
+
+        private void ReloadClients()
+        {
+            Clients.Clear();
+
+            foreach (Client client in ClientStorage.Load())
+            {
+                Clients.Add(client);
+            }
+        }
+
+        private void SaveClients()
+        {
+            ClientStorage.Save(Clients);
+        }
+
+        private Client SelectedClient
+        {
+            get
+            {
+                return ClientsGrid.SelectedItem as Client;
+            }
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClientWindow window = new ClientWindow();
+
+            window.Owner = Window.GetWindow(this);
+
+            if (window.ShowDialog() != true)
+                return;
+
+            Clients.Add(window.Client);
+
+            SaveClients();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedClient == null)
+                return;
+
+            ClientWindow window = new ClientWindow(SelectedClient);
+
+            window.Owner = Window.GetWindow(this);
+
+            if (window.ShowDialog() != true)
+                return;
+
+            ClientsGrid.Items.Refresh();
+
+            SaveClients();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedClient == null)
+                return;
+
+            if (MessageBox.Show(
+                    $"Delete client \"{SelectedClient.Name}\"?",
+                    "Delete Client",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) != MessageBoxResult.Yes)
+            {
+                return;
+            }
+
+            Clients.Remove(SelectedClient);
+
+            SaveClients();
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReloadClients();
+        }
+
+        private void CheckButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedClient == null)
+                return;
+
+            // TODO
+        }
+
+        private void OpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedClient == null)
+                return;
+
+            // TODO
+        }
+
+        private void ExploreButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedClient == null)
+                return;
+
+            // TODO
+        }
+
+        private void MoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedClient == null)
+                return;
+
+            // TODO
+        }
+
+        private void ClientsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Usually nothing is needed here.
+            // The lower panel updates automatically thanks to ElementName bindings.
         }
     }
 }

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace BatUtils.Controls
 {
     public partial class TitleBar : UserControl
     {
-        public event MouseButtonEventHandler DragRequested;
-
         public event EventHandler MinimizeClicked;
         public event EventHandler MaximizeClicked;
         public event EventHandler CloseClicked;
@@ -35,18 +32,8 @@ namespace BatUtils.Controls
 
         public void SetMaximized(bool maximized)
         {
-            MaximizeIcon.Visibility = maximized
-                ? Visibility.Collapsed
-                : Visibility.Visible;
-
-            RestoreIcon.Visibility = maximized
-                ? Visibility.Visible
-                : Visibility.Collapsed;
-        }
-
-        private void RootBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragRequested?.Invoke(this, e);
+            MaximizeIcon.Visibility = maximized ? Visibility.Collapsed : Visibility.Visible;
+            RestoreIcon.Visibility = maximized ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }

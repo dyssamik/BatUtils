@@ -361,4 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/Data/clients.csv
+
+# Private data and configuration Files
+*.xml
+*.ini
+*.json
+*.csv
