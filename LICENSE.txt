@@ -4,27 +4,72 @@ Copyright (c) 2026 BAT
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to use,
-study, modify, and redistribute the Software, subject to the following
-conditions:
+study, modify, and redistribute the Software, subject to the terms below.
 
-1. The original copyright notice and this license must be included in all
-   copies or substantial portions of the Software.
+1. Definitions
 
-2. Any modified versions of the Software must clearly indicate that changes
-   have been made.
+"Software" means this project and any portion of its source code,
+documentation, and other files distributed with it.
 
-3. Commercial use of the Software, in whole or in part, is prohibited without
-   prior written permission from the copyright holder.
+"Author" means the copyright holder of the Software.
 
-4. Selling, sublicensing, bundling with commercial products, or offering the
-   Software as part of a paid service is considered commercial use.
+"Commercial Use" means any use primarily intended for commercial advantage or
+monetary compensation. Commercial Use includes, but is not limited to:
 
-5. This license does not grant any rights to use the author's name or project
-   name for endorsement or promotion without prior written permission.
+- selling the Software;
+- sublicensing the Software;
+- bundling the Software with commercial products;
+- providing the Software as part of a paid service;
+- charging for access to the Software;
+- distributing modified versions for commercial purposes.
+
+2. Grant of License
+
+You may:
+
+- use the Software for personal, educational, research, and internal business
+  purposes;
+- study how the Software works;
+- modify the Software;
+- redistribute the original or modified Software for non-commercial purposes.
+
+3. Conditions
+
+Redistribution of the Software, in original or modified form, is permitted only
+if all of the following conditions are met:
+
+- this copyright notice and this license are included with the Software;
+- modified versions clearly indicate that changes have been made;
+- recipients receive a copy of this license.
+
+4. Commercial Restrictions
+
+Commercial Use of the Software, in whole or in part, is prohibited without
+prior written permission from the Author.
+
+This restriction applies to both the original Software and modified versions.
+
+This license does not grant permission to use the Author's name, project name,
+logo, or trademarks to endorse or promote derived works without prior written
+permission.
+
+5. Termination
+
+Any use of the Software in violation of this license automatically terminates
+the rights granted under this license.
+
+If the violation is corrected and all unauthorized use ceases, the Author may,
+at their sole discretion, restore those rights.
+
+6. Disclaimer of Warranty
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN
-ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+7. Limitation of Liability
+
+IN NO EVENT SHALL THE AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM,
+DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR
+OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
