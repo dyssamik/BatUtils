@@ -63,13 +63,9 @@ namespace BatUtils.Views
                 return;
 
             ClientWindow window = new ClientWindow(SelectedClient);
-
             window.Owner = Window.GetWindow(this);
-
             if (window.ShowDialog() != true)
                 return;
-
-            ClientsGrid.Items.Refresh();
 
             SaveClients();
         }
@@ -80,8 +76,10 @@ namespace BatUtils.Views
                 return;
 
             if (MessageBox.Show(
-                    $"Delete client \"{SelectedClient.Name}\"?",
-                    "Delete Client",
+                    string.Format(
+                        Properties.Strings.ClientsDeleteQuestion,
+                        SelectedClient.Name),
+                    Properties.Strings.ClientsDeleteTitle,
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) != MessageBoxResult.Yes)
             {
@@ -128,12 +126,6 @@ namespace BatUtils.Views
                 return;
 
             // TODO
-        }
-
-        private void ClientsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Usually nothing is needed here.
-            // The lower panel updates automatically thanks to ElementName bindings.
         }
     }
 }

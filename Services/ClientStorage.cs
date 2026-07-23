@@ -31,7 +31,7 @@ namespace BatUtils.Services
 
                 string[] parts = line.Split(Separator);
 
-                if (parts.Length < 4)
+                if (parts.Length < 7)
                     continue;
 
                 clients.Add(new Client

@@ -12,13 +12,13 @@ namespace BatUtils.Views
         {
             InitializeComponent();
 
-            Title = "Add Client";
+            Title = Properties.Strings.ClientWindowAddTitle;
         }
 
         public ClientWindow(Client client)
             : this()
         {
-            Title = "Edit Client";
+            Title = Properties.Strings.ClientWindowEditTitle;
 
             CodeTextBox.Text = client.Code;
             NameTextBox.Text = client.Name;
@@ -34,18 +34,27 @@ namespace BatUtils.Views
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            ushort rkPort;
-            ushort shPort;
+            ushort rkPort = 0;
+            ushort shPort = 0;
 
-            if (!ushort.TryParse(RKPortTextBox.Text, out rkPort))
+            if (string.IsNullOrWhiteSpace(CodeTextBox.Text) ||
+                string.IsNullOrWhiteSpace(NameTextBox.Text))
             {
-                MessageBox.Show("Invalid RK7 port.");
+                MessageBox.Show(this, Properties.Strings.ClientWindowValidationCodeName, Properties.Strings.ClientWindowValidationTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            if (!ushort.TryParse(SHPortTextBox.Text, out shPort))
+            if (!string.IsNullOrWhiteSpace(RKPortTextBox.Text) &&
+                !ushort.TryParse(RKPortTextBox.Text, out rkPort))
             {
-                MessageBox.Show("Invalid SH5 port.");
+                MessageBox.Show(this, Properties.Strings.ClientWindowInvalidRKPort, Properties.Strings.ClientWindowValidationTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(SHPortTextBox.Text) &&
+                !ushort.TryParse(SHPortTextBox.Text, out shPort))
+            {
+                MessageBox.Show(this, Properties.Strings.ClientWindowInvalidSHPort, Properties.Strings.ClientWindowValidationTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 

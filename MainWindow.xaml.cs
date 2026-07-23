@@ -16,7 +16,9 @@ namespace BatUtils
         private const uint MONITOR_DEFAULTTONEAREST = 2;
 
         private readonly ClientsView _clientsView;
+        private readonly ToolsView _toolsView;
         private readonly SettingsView _settingsView;
+        private readonly InfoView _infoView;
 
         [StructLayout(LayoutKind.Sequential)]
         private struct POINT
@@ -68,6 +70,10 @@ namespace BatUtils
             Sidebar.NavigationRequested += Sidebar_NavigationRequested;
 
             _clientsView = new ClientsView();
+            _toolsView = new ToolsView();
+            _settingsView = new SettingsView();
+            _infoView = new InfoView();
+
             MainContent.Content = _clientsView;
         }
 
@@ -147,7 +153,7 @@ namespace BatUtils
                     break;
 
                 case NavigationPage.Tools:
-                    // TODO
+                    MainContent.Content = _toolsView;
                     break;
 
                 case NavigationPage.Settings:
@@ -155,7 +161,7 @@ namespace BatUtils
                     break;
 
                 case NavigationPage.Info:
-                    // TODO
+                    MainContent.Content = _infoView;
                     break;
             }
         }
