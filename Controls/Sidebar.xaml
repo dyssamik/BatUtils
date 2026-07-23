@@ -1,105 +1,32 @@
 <UserControl x:Class="BatUtils.Controls.Sidebar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:BatUtils.Controls">
 
-    <UserControl.Resources>
+    <Border Background="#1A1A1A">
 
-        <Style x:Key="NavButton"
-               TargetType="Button">
+        <StackPanel Margin="0,12">
 
-            <Setter Property="Height"
-                    Value="40"/>
+            <controls:SidebarItem
+                x:Name="ClientsItem"
+                Text="Clients"
+                Page="Clients"
+                IsSelected="True"/>
 
-            <Setter Property="Background"
-                    Value="Transparent"/>
+            <controls:SidebarItem
+                x:Name="ToolsItem"
+                Text="Tools"
+                Page="Tools"/>
 
-            <Setter Property="Foreground"
-                    Value="#CCCCCC"/>
+            <controls:SidebarItem
+                x:Name="SettingsItem"
+                Text="Settings"
+                Page="Settings"/>
 
-            <Setter Property="BorderBrush"
-                    Value="#303030"/>
-
-            <Setter Property="BorderThickness"
-                    Value="0,0,0,1"/>
-
-            <Setter Property="HorizontalContentAlignment"
-                    Value="Left"/>
-
-            <Setter Property="Padding"
-                    Value="12,0,0,0"/>
-
-            <Setter Property="Cursor"
-                    Value="Hand"/>
-
-            <Setter Property="Template">
-
-                <Setter.Value>
-
-                    <ControlTemplate TargetType="Button">
-
-                        <Border x:Name="Border"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-
-                            <ContentPresenter
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left"
-                                Margin="{TemplateBinding Padding}"/>
-
-                        </Border>
-
-                        <ControlTemplate.Triggers>
-
-                            <Trigger Property="IsMouseOver"
-                                     Value="True">
-
-                                <Setter TargetName="Border"
-                                        Property="Background"
-                                        Value="#252525"/>
-
-                            </Trigger>
-
-                            <Trigger Property="IsPressed"
-                                     Value="True">
-
-                                <Setter TargetName="Border"
-                                        Property="Background"
-                                        Value="#303030"/>
-
-                            </Trigger>
-
-                        </ControlTemplate.Triggers>
-
-                    </ControlTemplate>
-
-                </Setter.Value>
-
-            </Setter>
-
-        </Style>
-
-    </UserControl.Resources>
-
-    <Border Background="#181818">
-
-        <StackPanel>
-
-            <Button
-                Style="{StaticResource NavButton}"
-                Content="Clients"/>
-
-            <Button
-                Style="{StaticResource NavButton}"
-                Content="Tools"/>
-
-            <Button
-                Style="{StaticResource NavButton}"
-                Content="Settings"/>
-
-            <Button
-                Style="{StaticResource NavButton}"
-                Content="Info"/>
+            <controls:SidebarItem
+                x:Name="InfoItem"
+                Text="Info"
+                Page="Info"/>
 
         </StackPanel>
 

@@ -1,4 +1,5 @@
-﻿using BatUtils.Models;
+﻿using BatUtils.Controls;
+using BatUtils.Models;
 using BatUtils.Views;
 using System;
 using System.Collections.ObjectModel;
@@ -14,14 +15,8 @@ namespace BatUtils
         private const int WM_GETMINMAXINFO = 0x0024;
         private const uint MONITOR_DEFAULTTONEAREST = 2;
 
-        private readonly ObservableCollection<Client> _clients =
-            new ObservableCollection<Client>
-            {
-                new Client { Code = "1", Name = "cli_1" },
-                new Client { Code = "2", Name = "cli_2" }
-            };
-
         private readonly ClientsView _clientsView;
+        private readonly SettingsView _settingsView;
 
         [StructLayout(LayoutKind.Sequential)]
         private struct POINT
@@ -69,6 +64,8 @@ namespace BatUtils
             InitializeComponent();
 
             StateChanged += MainWindow_StateChanged;
+
+            Sidebar.NavigationRequested += Sidebar_NavigationRequested;
 
             _clientsView = new ClientsView();
             MainContent.Content = _clientsView;
@@ -139,6 +136,28 @@ namespace BatUtils
         private void TitleBar_CloseClicked(object sender, EventArgs e)
         {
             SystemCommands.CloseWindow(this);
+        }
+
+        private void Sidebar_NavigationRequested(object sender, NavigationPage page)
+        {
+            switch (page)
+            {
+                case NavigationPage.Clients:
+                    MainContent.Content = _clientsView;
+                    break;
+
+                case NavigationPage.Tools:
+                    // TODO
+                    break;
+
+                case NavigationPage.Settings:
+                    MainContent.Content = _settingsView;
+                    break;
+
+                case NavigationPage.Info:
+                    // TODO
+                    break;
+            }
         }
 
         private void GitHubLink_Click(object sender, RoutedEventArgs e)

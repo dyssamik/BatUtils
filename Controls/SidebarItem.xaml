@@ -1,0 +1,33 @@
+<UserControl x:Class="BatUtils.Controls.SidebarItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="Root">
+
+    <Grid>
+
+        <Border x:Name="BackgroundBorder"
+            Background="Transparent"
+            MinHeight="36">
+
+            <Grid>
+
+                <Border x:Name="SelectionBar"
+                    Width="3"
+                    HorizontalAlignment="Left"
+                    Background="#E8B4D0"
+                    Visibility="Collapsed"/>
+
+                <TextBlock x:Name="TitleText"
+                       Margin="16,0,12,0"
+                       VerticalAlignment="Center"
+                       Foreground="#B0B0B0"
+                       FontSize="13"
+                       Text="{Binding Text, ElementName=Root}"/>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>

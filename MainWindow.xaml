@@ -48,7 +48,9 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <controls:Sidebar Grid.Column="0"/>
+            <controls:Sidebar
+                x:Name="Sidebar"
+                Grid.Column="0"/>
 
             <ContentControl
                 x:Name="MainContent"

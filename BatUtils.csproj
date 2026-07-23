@@ -94,6 +94,10 @@
     <Compile Include="Controls\ClientDetailsView.xaml.cs">
       <DependentUpon>ClientDetailsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NavigationPage.cs" />
+    <Compile Include="Controls\SidebarItem.xaml.cs">
+      <DependentUpon>SidebarItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Client.cs" />
     <Compile Include="Services\ClientStorage.cs" />
     <Compile Include="Views\ClientsView.xaml.cs">
@@ -101,6 +105,9 @@
     </Compile>
     <Compile Include="Views\ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +177,9 @@
     <Page Include="Controls\Sidebar.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\SidebarItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TitleBar.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -180,6 +190,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ClientWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
